@@ -1,0 +1,37 @@
+RewriteEngine On
+#RewriteBase /usr/workspace/projects/RootedNetwork/
+RewriteBase /
+
+# redirect www
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+#subdomains handled with htaccess
+RewriteCond %{HTTP_HOST} ^pvpstats\.azerothshard\.ga$
+RewriteCond %{REQUEST_URI} !^/modules/PvPstats/
+RewriteRule ^(.*)$ /modules/PvPstats/$1 [NC,L]
+
+#azth folder redirects
+#RewriteCond %{REQUEST_URI} !^/modules/wow-char-migration/
+RewriteRule ^wow-char-migration(.*)$ /modules/wow-char-migration$2 [L,NC]
+
+RewriteCond %{HTTP_HOST} ^staff\.azerothshard\.ga$
+RewriteRule ^(.*)$ https://sites.google.com/site/azerothshardstaff/$1 [R,L]
+
+
+#subdomains handled by apache http.conf ( all others )
+RewriteCond %{HTTP_HOST} !^www\.azerothshard\.ga$
+RewriteCond %{HTTP_HOST} !^azerothshard\.ga$ 
+RewriteRule ^ - [L]
+
+RewriteRule ^index\.php$ - [L]
+
+# add a trailing slash to /wp-admin
+RewriteRule ^([_0-9a-zA-Z-]+/)?wp-admin$ $1wp-admin/ [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+RewriteRule ^([_0-9a-zA-Z-]+/)?(wp-(content|admin|includes).*) modules/wp/$2 [L]
+RewriteRule ^([_0-9a-zA-Z-]+/)?(.*\.php)$ modules/wp/$2 [L]
+RewriteRule . index.php [L]

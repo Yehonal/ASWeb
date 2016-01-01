@@ -5,7 +5,10 @@
 # ...except
 !/.gitignore
 !*/
+!/.htaccess
+!/index.php
 !/modules/wp-azth/**
+!/src/**
 
 # and then exclude specific
 /modules/wp-azth/azeroth/conf/*
