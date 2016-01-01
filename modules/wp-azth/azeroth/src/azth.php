@@ -6,7 +6,7 @@ defined("DS") or define('DS', DIRECTORY_SEPARATOR);
 
 define('AZTH_PATH_WPLG', realpath(dirname(__FILE__) . DS . '..' . DS) . DS);
 define('AZTH_PATH_WPLG_CONF', AZTH_PATH_WPLG . 'conf' . DS);
-define('AZTH_PATH_WPLG_SRC', dirname(__FILE__) . DS);
+define('AZTH_PATH_WPLG_SRC', AZTH_PATH_WPLG . DS . 'src' . DS );
 define('AZTH_PATH_WPLG_JS', AZTH_PATH_WPLG_SRC . 'js' . DS);
 define('AZTH_PATH_WPLG_CSS', AZTH_PATH_WPLG_SRC . 'css' . DS);
 
@@ -15,7 +15,7 @@ define('AZTH_URI_WPLG_JS', AZTH_URI_WPLG . 'js/');
 define('AZTH_URI_WPLG_CSS', AZTH_URI_WPLG . 'css/');
 
 
-register_theme_directory( AZTH_PATH_WPLG_SRC . 'themes' );
+register_theme_directory(AZTH_PATH_WPLG_SRC . 'themes');
 
 // SITE IDs
 define("AZEROTHSHARD", 3);

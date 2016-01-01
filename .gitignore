@@ -11,12 +11,12 @@
 !/.htaccess
 !/index.php
 !/src/**
-!/modules/wp-azth
+!/modules/wp-azth/**
 !/modules/wp/wp-content/plugins/azth/**
 
 # and then exclude specific
-/modules/wp/wp-content/plugins/azth/azeroth/conf/*
-!/modules/wp/wp-content/plugins/azth/azeroth/conf/*.default.php
+/modules/wp-azth/azeroth/conf/*
+!/modules/wp-azth/azeroth/conf/*.default.php
 
 #
 # OS specific
