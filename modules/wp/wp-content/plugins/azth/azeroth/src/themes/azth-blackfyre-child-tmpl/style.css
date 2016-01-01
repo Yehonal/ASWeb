@@ -1,0 +1,122 @@
+/*
+Theme Name:     Azth Blackfyre Child
+Theme URI:      http://example.com/
+Description:    Tema Child per il tema Blackfyre
+Author:         Yehonal
+Author URI:     http://example.com/about/
+Template:       blackfyre
+Version:        0.1.0
+*/
+
+
+.wpulike {
+    float: right;
+}
+
+.page {
+    padding-top: 30px;
+}
+
+body {
+    font-size: 14px;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 90%;
+        max-width: 1980px;
+    }
+}
+.copyright.container.span12,
+.back-to-topw
+{
+    z-index: 0;
+}
+
+
+.blog-image img {
+    /*padding-left:70px;*/
+    width: 100%;
+    min-height: 130px;
+}
+
+/*
+    buddypress
+*/
+
+#buddypress .activity ul.item-list li {
+    width: 100%;
+}
+
+.bbp-user-page #buddypress>#item-nav {
+    position: initial;
+}
+
+#buddypress .profile #item-nav, .my-account #buddypress #item-nav, .profile #buddypress #item-nav {
+    position: initial;
+}
+
+#item-header-content {
+    margin-top: 20px;
+}
+
+#buddypress ul.item-list li .item-avatar img.avatar {
+    width:auto;
+}
+
+#buddypress ul.item-list li img.avatar,
+#buddypress form#whats-new-form #whats-new-avatar .avatar {
+    height: 50px;
+}
+
+#buddypress {
+    font-size: 100% !important;
+}
+
+/*
+ Woo commerce
+*/
+
+.woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+    float: left;
+}
+
+@media (max-width: 768px) {
+    .woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+        width: 48% !important;
+    }
+}
+/*
+    Simple press
+*/
+/* fix forum image */
+@media (max-width: 1200px) {
+    #spMainContainer .spRowIcon {
+        width: 70%;
+    }
+}
+
+/* fix tool widget */
+.ui-dialog {
+    z-index: 9000 !important;
+    top: 100px !important;
+}
+
+/* fix search plugin bg color */
+#spMainContainer #spSearchList .spPostSearchSection .spPostSearchResultsSection{
+    background: none !important;
+}
+
+.logo.col-lg-3 {
+    padding: 0px !important;
+    min-width: 50% !important;
+}
+
+.notice-item {
+    background-color: #333 !important;
+    color: #dedede !important;
+}
+
+body {
+    background-size: cover !important;
+}
