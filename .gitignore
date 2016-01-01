@@ -2,17 +2,20 @@
 
 # exclude everything ...
 *
+.*
+*.gitignore
+
 # ...except
 !/.gitignore
 !*/
 !/.htaccess
 !/index.php
-!/modules/wp-azth/**
 !/src/**
+!/modules/wp/wp-content/plugins/azth/**
 
 # and then exclude specific
-/modules/wp-azth/azeroth/conf/*
-!/modules/wp-azth/azeroth/conf/*.default.php
+/modules/wp/wp-content/plugins/azth/azeroth/conf/*
+!/modules/wp/wp-content/plugins/azth/azeroth/conf/*.default.php
 
 #
 # OS specific

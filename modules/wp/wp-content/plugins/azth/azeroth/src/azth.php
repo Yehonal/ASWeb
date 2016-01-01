@@ -14,6 +14,9 @@ define('AZTH_URI_WPLG', '/modules/wp-azth/azeroth/src/');
 define('AZTH_URI_WPLG_JS', AZTH_URI_WPLG . 'js/');
 define('AZTH_URI_WPLG_CSS', AZTH_URI_WPLG . 'css/');
 
+
+register_theme_directory( AZTH_PATH_WPLG_SRC . 'themes' );
+
 // SITE IDs
 define("AZEROTHSHARD", 3);
 
