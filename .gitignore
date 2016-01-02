@@ -8,15 +8,15 @@
 # ...except
 !/.gitignore
 !*/
-!/.htaccess
-!/index.php
-!/src/**
-!/modules/wp-azth/**
-!/modules/wp/wp-content/plugins/azth/**
+!/azerothweb/.htaccess
+!/azerothweb/index.php
+!/azerothweb/src/**
+!/azerothweb/modules/wp-azth/**
+!/azerothweb/modules/wp/wp-content/plugins/azth/**
 
 # and then exclude specific
-/modules/wp-azth/azeroth/conf/*
-!/modules/wp-azth/azeroth/conf/*.default.php
+/azerothweb/modules/wp-azth/azeroth/conf/*
+!/azerothweb/modules/wp-azth/azeroth/conf/*.default.php
 
 #
 # OS specific
