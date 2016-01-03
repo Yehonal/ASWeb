@@ -24,9 +24,9 @@
 !/azerothweb/modules/wp/wp-content/index.php
 /azerothweb/modules/wp/wp-content/plugins/*
 /azerothweb/modules/wp/wp-content/themes/*
-!/azerothweb/modules/wp/wp-content/themes/azth-blackfyre-child-tmpl/
 !/azerothweb/modules/wp/wp-content/plugins/azth/
-#!/azerothweb/modules/wp/wp-content/themes/twenty*/**
+!/azerothweb/modules/wp/wp-content/themes/azth-blackfyre-child-tmpl/
+!/azerothweb/modules/wp/wp-content/themes/twenty*
 
 # and then exclude specific
 /azerothweb/modules/TC-JSON-API/*
