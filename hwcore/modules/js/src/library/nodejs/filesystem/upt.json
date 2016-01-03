@@ -1,0 +1,11 @@
+{
+  "name": "hwcore/modules/js/src/library/nodejs/filesystem",
+  "devDependencies": {
+    "%tests": "hw-core/js-library-nodejs-filesystem#tests",
+    "%doc": "hw-core/js-library-nodejs-filesystem#gh-pages"
+  },
+  "keep": [
+    ".git/config"
+  ],
+  "license": "http://www.hyperweb2.com/terms"
+}

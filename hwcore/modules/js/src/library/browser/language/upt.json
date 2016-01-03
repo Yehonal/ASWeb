@@ -1,0 +1,16 @@
+{
+  "name": "hwcore/modules/js/src/library/browser/language",
+  "license": "http://www.hyperweb2.com/terms",
+  "dependencies": {
+    "%common": "hw-core/js-library-browser-common#*"
+  },
+  "devDependencies": {
+    "%tests": "hw-core/js-library-browser-language#tests",
+    "%doc": "hw-core/js-library-browser-language#gh-pages"
+  },
+  "_comment_keep": "ensure we keep the right git repository configurations",
+  "keep": [
+    ".git/config"
+  ],
+  "version": "0.0.2"
+}

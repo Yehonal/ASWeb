@@ -1,0 +1,15 @@
+{
+    "name": "hwcore/modules/php/src/kernel",
+    "license": "http://www.hyperweb2.com/terms",
+    "dependencies": {
+    },
+    "_comment_dev_dep": "use files to save space",
+    "devDependencies": {
+        "phpunit": "sebastianbergmann/phpunit#4.8.21"
+    },
+    "_comment_keep": "ensure we keep the right git repository configurations",
+    "keep": [
+        ".git/config"
+    ],
+    "version": "0.0.1"
+}

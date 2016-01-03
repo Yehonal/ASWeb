@@ -1,23 +1,8 @@
-#AZTH
+#
+# ignore file
+#
 
-# exclude everything ...
-*
-.*
-*.gitignore
-
-# ...except
-!/.gitignore
-!*/
-!/hwcore/**
-!/azerothweb/.htaccess
-!/azerothweb/index.php
-!/azerothweb/src/**
-!/azerothweb/modules/wp-azth/**
-!/azerothweb/modules/wp/wp-content/plugins/azth/**
-
-# and then exclude specific
-/azerothweb/modules/wp-azth/azeroth/conf/*
-!/azerothweb/modules/wp-azth/azeroth/conf/*.default.php
+!.gitignore
 
 #
 # OS specific
@@ -55,7 +40,7 @@ patches-*
 /.settings/
 /.externalToolBuilders/*
 # exclude in all levels
-nbproject/private/
+nbproject/
 .sync.ffs_db
 
 #
@@ -64,6 +49,7 @@ nbproject/private/
 *.pydevproject
 .metadata
 .gradle
+bin/
 tmp/
 *.tmp
 *.swp
@@ -74,8 +60,6 @@ local.properties
 
 # External tool builders
 .externalToolBuilders/
-/node_modules
-/npm-debug.*
 
 # Locally stored "Eclipse launch configurations"
 *.launch
@@ -88,5 +72,20 @@ local.properties
 
 # TeXlipse plugin
 .texlipse
+
+
+#
+# HWCore files
+#
+
+.htaccess
+.upt.json
+tests/
+doc/
+
+
+
+
+
 
 

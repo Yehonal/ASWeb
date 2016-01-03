@@ -1,0 +1,17 @@
+{
+  "name": "hwcore/modules/js/src/library/browser/application",
+  "dependencies": {
+    "%common": "hw-core/js-library-browser-common#*",
+    "%application": "hw-core/js-library-application#*",
+    "%router": "hw-core/js-library-browser-router#*",
+    "%gui": "hw-core/js-library-browser-gui#*"
+  },
+  "devDependencies": {
+    "%tests": "hw-core/js-library-browser-application#tests",
+    "%doc": "hw-core/js-library-browser-application#gh-pages"
+  },
+  "keep": [
+    ".git/config"
+  ],
+  "license": "http://www.hyperweb2.com/terms"
+}

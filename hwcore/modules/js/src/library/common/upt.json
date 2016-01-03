@@ -1,0 +1,16 @@
+{
+    "name": "hwcore/modules/js/src/library/common",
+    "license": "http://www.hyperweb2.com/terms",
+    "dependencies": {
+        "%init": "hw-core/js-kernel#*",
+        "%class": "hw-core/js-library-class#*"
+    },
+    "devDependencies": {
+        "%tests": "hw-core/js-library-common#tests",
+        "%doc": "hw-core/js-library-common#gh-pages"
+    },
+    "_comment_keep": "ensure we keep the right git repository configurations",
+    "keep": [
+        ".git/config"
+    ]
+}

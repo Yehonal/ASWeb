@@ -1,0 +1,17 @@
+{
+  "name": "hwcore/modules/js/src/library/browser/event",
+  "license": "http://www.hyperweb2.com/terms",
+  "dependencies": {
+    "%common": "hw-core/js-library-browser-common#*",
+    "%event": "hw-core/js-library-event#*"
+  },
+  "devDependencies": {
+    "%tests": "hw-core/js-library-browser-event#tests",
+    "%doc": "hw-core/js-library-browser-event#gh-pages"
+  },
+  "_comment_keep": "ensure we keep the right git repository configurations",
+  "keep": [
+    ".git/config"
+  ],
+  "version": "0.0.1"
+}

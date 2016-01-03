@@ -1,0 +1,14 @@
+{
+  "name": "hw2/modules/dep/chai",
+  "_cacheHeaders": {
+    "ETag": "\"119983-1395248180000\"",
+    "Last-Modified": "Wed, 19 Mar 2014 16:56:20 GMT",
+    "Content-Length": "119983",
+    "Content-Type": "application/javascript"
+  },
+  "_release": "e-tag:119983-13",
+  "main": "index.js",
+  "_source": "http://chaijs.com/chai.js",
+  "_target": "*",
+  "_originalSource": "http://chaijs.com/chai.js"
+}

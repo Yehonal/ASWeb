@@ -1,0 +1,14 @@
+{
+  "name": "hw2/modules/dep/sinon",
+  "_cacheHeaders": {
+    "ETag": "\"2081eb-26b14-4ffd3e4951340\"",
+    "Last-Modified": "Mon, 04 Aug 2014 20:50:45 GMT",
+    "Content-Length": "158484",
+    "Content-Type": "application/javascript"
+  },
+  "_release": "e-tag:2081eb-26",
+  "main": "index.js",
+  "_source": "http://sinonjs.org/releases/sinon-1.10.3.js",
+  "_target": "*",
+  "_originalSource": "http://sinonjs.org/releases/sinon-1.10.3.js"
+}

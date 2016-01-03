@@ -1,0 +1,16 @@
+{
+  "name": "hwcore/modules/js/src/library/browser/uri",
+  "license": "http://www.hyperweb2.com/terms",
+  "dependencies": {
+    "%common": "hw-core/js-library-uri#*"
+  },
+  "devDependencies": {
+    "%tests": "hw-core/js-library-browser-uri#tests",
+    "%doc": "hw-core/js-library-browser-uri#gh-pages"
+  },
+  "_comment_keep": "ensure we keep the right git repository configurations",
+  "keep": [
+    ".git/config"
+  ],
+  "version": "0.0.1"
+}

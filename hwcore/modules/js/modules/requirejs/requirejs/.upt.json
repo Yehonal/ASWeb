@@ -1,0 +1,14 @@
+{
+  "name": "hw2/modules/dep/requirejs/requirejs",
+  "_cacheHeaders": {
+    "ETag": "\"d90e110-3b73-4fadd37291bc0\"",
+    "Last-Modified": "Mon, 02 Jun 2014 16:52:07 GMT",
+    "Content-Length": "15219",
+    "Content-Type": "application/javascript"
+  },
+  "_release": "e-tag:d90e110-3",
+  "main": "index.js",
+  "_source": "http://requirejs.org/docs/release/2.1.14/minified/require.js",
+  "_target": "*",
+  "_originalSource": "http://requirejs.org/docs/release/2.1.14/minified/require.js"
+}

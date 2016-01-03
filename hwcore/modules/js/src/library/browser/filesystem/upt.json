@@ -1,0 +1,16 @@
+{
+    "name": "hwcore/modules/js/src/library/browser/filesystem",
+    "license": "http://www.hyperweb2.com/terms",
+    "dependencies": {
+        "%common": "hw-core/js-library-browser-common#*",
+        "%fs": "hw-core/js-library-filesystem#*"
+    },
+    "devDependencies": {
+        "%tests": "hw-core/js-library-browser-filesystem#tests",
+        "%doc": "hw-core/js-library-browser-filesystem#gh-pages"
+    },
+    "_comment_keep": "ensure we keep the right git repository configurations",
+    "keep": [
+        ".git/config"
+    ]
+}

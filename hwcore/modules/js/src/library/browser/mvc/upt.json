@@ -1,0 +1,14 @@
+{
+  "name": "hwcore/modules/js/src/library/browser/mvc",
+  "license": "http://www.hyperweb2.com/terms",
+  "dependencies": {},
+  "devDependencies": {
+    "%tests": "hw-core/js-library-browser-mvc#tests",
+    "%doc": "hw-core/js-library-browser-mvc#gh-pages"
+  },
+  "_comment_keep": "ensure we keep the right git repository configurations",
+  "keep": [
+    ".git/config"
+  ],
+  "version": "0.0.1"
+}

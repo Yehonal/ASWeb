@@ -1,0 +1,11 @@
+{
+  "name": "hwcore/modules/js/src/library/browser/cookie",
+  "devDependencies": {
+    "%tests": "hw-core/js-library-browser-cookie#tests",
+    "%doc": "hw-core/js-library-browser-cookie#gh-pages"
+  },
+  "keep": [
+    ".git/config"
+  ],
+  "license": "http://www.hyperweb2.com/terms"
+}

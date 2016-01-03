@@ -1,0 +1,11 @@
+{
+  "name": "hwcore/modules/js/src/library/application",
+  "devDependencies": {
+    "%tests": "hw-core/js-library-application#tests",
+    "%doc": "hw-core/js-library-application#gh-pages"
+  },
+  "keep": [
+    ".git/config"
+  ],
+  "license": "http://www.hyperweb2.com/terms"
+}
