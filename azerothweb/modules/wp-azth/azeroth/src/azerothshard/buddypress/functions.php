@@ -6,7 +6,7 @@ function azthForumRedirect() {
 
 function azthPoints() {
     ?>
-<h1>TEST</h1>
+    <h1>TEST</h1>
     <?php
 }
 
@@ -18,12 +18,12 @@ function azthBpTabs() {
         'screen_function' => 'azthForumRedirect',
         'position' => 11)
     );
-    
-    /*bp_core_new_nav_item(array(
-        'name' => __('Azeroth Points'),
-        'screen_function' => 'azthPoints',
-        'position' => 30)
-    );*/
+
+    /* bp_core_new_nav_item(array(
+      'name' => __('Azeroth Points'),
+      'screen_function' => 'azthPoints',
+      'position' => 30)
+      ); */
 }
 
 add_action('bp_setup_nav', 'azthBpTabs');
@@ -32,20 +32,18 @@ $azthBpGroupRoleRel = array(
     3 => "azth_player_gdr" // GDR
 );
 
-
 function azthBpLeaveGroup($group_id, $user_id) {
     global $azthBpGroupRoleRel;
 
     if (!isset($azthBpGroupRoleRel[$group_id]))
         return;
-    
-    if ($user = get_user_by( 'id', $user_id ))
+
+    if ($user = get_user_by('id', $user_id))
         $user->remove_role($azthBpGroupRoleRel[$group_id]);
 }
 
 add_action('groups_leave_group', 'azthBpLeaveGroup', 10, 2);
 add_action('groups_remove_member', 'azthBpLeaveGroup', 10, 2);
-
 
 /**
  * Inverted parameters
@@ -53,7 +51,7 @@ add_action('groups_remove_member', 'azthBpLeaveGroup', 10, 2);
  * @param type $group_id
  */
 function azthBpMembershipAdd($user_id, $group_id) {
-    azthBpJoinGroup($group_id,$user_id);
+    azthBpJoinGroup($group_id, $user_id);
 }
 
 function azthBpJoinGroup($group_id, $user_id) {
@@ -61,8 +59,8 @@ function azthBpJoinGroup($group_id, $user_id) {
 
     if (!isset($azthBpGroupRoleRel[$group_id]))
         return;
-    
-    if ($user = get_user_by( 'id', $user_id ))
+
+    if ($user = get_user_by('id', $user_id))
         $user->add_role($azthBpGroupRoleRel[$group_id]);
 }
 

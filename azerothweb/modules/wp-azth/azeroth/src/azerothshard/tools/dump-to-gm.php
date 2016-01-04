@@ -485,9 +485,9 @@ if (!empty($_POST["dump"])) {
     echo "<br>";
     echo "<b>{$json["uinf"]["name"]} ({$json["uinf"]["race"]} / {$json["uinf"]["class"]}) level: {$json["uinf"]["level"]}</b><br>\n";
     echo "Char gender: {$json["uinf"]["gender"]}<br><br><br>\n";
-    
+
     echo "<b>Character data :</b><br>\n";
-    
+
     echo ".modify honor {$json["uinf"]["honor"]}<br>\n";
     echo ".modify arenapoints {$json["uinf"]["arenapoints"]}<br>\n";
     echo ".modify money {$json["uinf"]["money"]}<br>\n";
@@ -540,7 +540,7 @@ if (!empty($_POST["dump"])) {
     echo "<b>Glyphs</b>:<br>\n";
 
     function learnGlyphs($id) {
-        if ($id>0)
+        if ($id > 0)
             echo "spell: $id ( must find related item )<br>\n";
     }
 

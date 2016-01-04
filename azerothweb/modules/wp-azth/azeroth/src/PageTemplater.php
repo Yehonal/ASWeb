@@ -63,9 +63,9 @@ class PageTemplater {
         // Add your templates to this array.
         $this->templates = array();
     }
-    
-    public function addTemplate($file,$name) {
-        $this->templates[$file]=$name;
+
+    public function addTemplate($file, $name) {
+        $this->templates[$file] = $name;
     }
 
     /**

@@ -1,4 +1,5 @@
 <?php
+
 namespace Azth;
 
-require AZTH_PATH_SRC.DS."wp-init.php";
+require_once AZTH_PATH_SRC . DS . "wp-init.php";

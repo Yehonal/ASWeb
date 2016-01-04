@@ -22,7 +22,6 @@ function user_meta_updated($meta_id, $object_id, $meta_key, $_meta_value) {
 
 add_action('update_user_meta', __NAMESPACE__ . '\user_meta_updated', 10, 4);
 
-
 function user_meta_updated($meta_id, $object_id, $meta_key, $_meta_value) {
     if (!$user = get_userdata($object_id))
         return false;
@@ -38,7 +37,5 @@ function user_meta_updated($meta_id, $object_id, $meta_key, $_meta_value) {
             break;
     }
 }
-
-
 
 add_action('update_user_meta', __NAMESPACE__ . '\user_meta_updated', 10, 4);

@@ -3,5 +3,5 @@
 namespace Azth;
 
 class SysEvents {
-
+    
 }

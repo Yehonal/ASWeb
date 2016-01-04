@@ -389,8 +389,8 @@ function azthRemoveUserRole($userid, $role) {
 
 
     // auto remove mapped roles to simple-press 
-    if (isset($azthRoleRel[$role]))
-        sp_remove_membership($azthRoleRel[$role]["sp"], $userid);
+    //if (isset($azthRoleRel[$role]))
+    //    sp_remove_membership($azthRoleRel[$role]["sp"], $userid);
 }
 
 add_action('remove_user_role', __NAMESPACE__ . '\azthRemoveUserRole', 10, 2);

@@ -173,7 +173,7 @@
         <ul>
             <?php for ($i = 1; $i <= count($realms); $i++): ?>
                 <li <?php if ($i == $realm) echo "class='active'"; ?>>
-                    <a class="button" href="<?= makeParam(array("realm" => $i)) ?>"><span><?=$realms[$i]?></span></a>
+                    <a class="button" href="<?= makeParam(array("realm" => $i)) ?>"><span><?= $realms[$i] ?></span></a>
                 </li>
             <?php endfor; ?>
         </ul>
@@ -186,7 +186,7 @@
             </li>
             <?php
             foreach ($roles as $k => $r) {
-                if ($roles[$k]["for"]<0 || $roles[$k]["for"] == $realm) {
+                if ($roles[$k]["for"] < 0 || $roles[$k]["for"] == $realm) {
                     ?>
                     <li <?php if ($k == $role) echo "class='active'"; ?>>
                         <a class="button" href="<?= getRole($k) ?>"><span><?= $roles[$k]["name"] ?></span></a>
@@ -220,7 +220,7 @@
             exit;
         }
 
-        echo "<center><h2> Permessi per il ruolo : ".$roles[$role]['name']." </h2></center>";
+        echo "<center><h2> Permessi per il ruolo : " . $roles[$role]['name'] . " </h2></center>";
 
         $query = "SELECT DISTINCT r.id AS id, t.id AS user_id, r.name as name FROM (
     SELECT a.id AS ID, 
@@ -258,7 +258,7 @@
         <ul>
             <?php
             while ($row = mysqli_fetch_assoc($result)) {
-                echo "<li id='".$row['id']."'><a href='permissions.php#". $row['id']."'>" . $row['id'] ."</a> - ". $row['name'] . "</li>";
+                echo "<li id='" . $row['id'] . "'><a href='permissions.php#" . $row['id'] . "'>" . $row['id'] . "</a> - " . $row['name'] . "</li>";
             }
             mysqli_free_result($result);
             ?>

@@ -6,7 +6,7 @@ defined("DS") or define('DS', DIRECTORY_SEPARATOR);
 
 define('AZTH_PATH_WPLG', realpath(dirname(__FILE__) . DS . '..' . DS) . DS);
 define('AZTH_PATH_WPLG_CONF', AZTH_PATH_WPLG . 'conf' . DS);
-define('AZTH_PATH_WPLG_SRC', AZTH_PATH_WPLG . DS . 'src' . DS );
+define('AZTH_PATH_WPLG_SRC', AZTH_PATH_WPLG . DS . 'src' . DS);
 define('AZTH_PATH_WPLG_JS', AZTH_PATH_WPLG_SRC . 'js' . DS);
 define('AZTH_PATH_WPLG_CSS', AZTH_PATH_WPLG_SRC . 'css' . DS);
 
@@ -96,6 +96,7 @@ add_action('bbp_theme_after_forum_title', __NAMESPACE__ . '\forum_icons');
 require_once AZTH_PATH_WPLG_SRC . "checkNames.php";
 require_once AZTH_PATH_WPLG_SRC . "PageTemplater.php";
 require_once AZTH_PATH_WPLG_SRC . "WpTools.php";
+require_once AZTH_PATH_WPLG_SRC . "plugin-filter.php";
 
 $blogId = get_current_blog_id();
 

@@ -1,28 +1,34 @@
 <?php
 
-add_filter('mycred_coupon_min_balance', function($post_meta, $post_id = 0) {
-    // this is useful when we want to create a coupon with total as min requirement
-    switch($post_id) {
-        case 3063:           
-            // workaround for christmas coupon
-            $user_total=intval(do_shortcode( '[mycred_total_balance]' ));
-            $post_meta=intval($post_meta);
+namespace Azth;
 
-            if ($user_total>=$post_meta)
+function mycred_coupon_min_balance($post_meta, $post_id = 0) {
+    // this is useful when we want to create a coupon with total as min requirement
+    switch ($post_id) {
+        case 3063:
+            // workaround for christmas coupon
+            $user_total = intval(do_shortcode('[mycred_total_balance]'));
+            $post_meta = intval($post_meta);
+
+            if ($user_total >= $post_meta)
                 return 1;
-        break;
+            break;
         default:
             return $post_meta;
     }
-},10,2);
+
+    return 0;
+}
+
+add_filter('mycred_coupon_min_balance', AZTH_NS . 'mycred_coupon_min_balance', 10, 2);
 
 //add_filter('mycred_run_this', 'azthStaffPayout');
 
 function azthStaffPayout($request) {
-    
-    $staff=array(
-        //"Yehonal" => 10000,  // Yehonal
-        //"cipo" => 15000 // alberto
+
+    $staff = array(
+            //"Yehonal" => 10000,  // Yehonal
+            //"cipo" => 15000 // alberto
     );
 
     // Only applicable for recurring payouts
@@ -37,10 +43,10 @@ function azthStaffPayout($request) {
     // ADMIN get 0 points
     //if (in_array('administrator', $user->roles))
     //    $request['amount'] = 0;
-    
+
     if (array_key_exists($user->user_login, $staff))
-        $request['amount']  = $staff[$user->user_login];
-    
+        $request['amount'] = $staff[$user->user_login];
+
     return $request;
 }
 

@@ -74,5 +74,5 @@ class WpTools {
         $filename = trim($filename, '.-_');
         return apply_filters('sanitize_file_name', $filename, $filename_raw);
     }
-    
+
 }

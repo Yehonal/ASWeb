@@ -5,5 +5,5 @@
   Version: 1.0
  */
 
-require_once ABSPATH .'/../wp-azth/azeroth/src/azth.php';
+require_once AZTH_PATH_MODULES . '/wp-azth/azeroth/src/azth.php';
 

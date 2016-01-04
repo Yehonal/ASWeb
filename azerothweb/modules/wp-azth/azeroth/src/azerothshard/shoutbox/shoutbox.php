@@ -17,7 +17,7 @@ function showShoutbox() {
             font-size: 16px;
             font-weight: bold;
         }
-        
+
         .skwidget-comment .wpulike {
             display:none;
         }

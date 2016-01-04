@@ -15,15 +15,15 @@ function woo_display_order_username($order) {
 }
 
 // avoid some emails to admin
-add_action('woocommerce_email_enabled_new_order',function ($enabled, $order) {
-    $items=$order->get_items();
+add_action('woocommerce_email_enabled_new_order', function ($enabled, $order) {
+    $items = $order->get_items();
 
-    $enabled=false;
+    $enabled = false;
 
     foreach ($items as $item) {
         // enable mails if there are product different by this list:
-        if ($item["product_id"] != PRODUCTID_I80) 
-            $enabled=true;
+        if ($item["product_id"] != PRODUCTID_I80)
+            $enabled = true;
     }
 
 
@@ -48,10 +48,10 @@ function azth_woocommerce_payment_complete($order_id) {
     $order = new WC_Order($order_id);
     $items = $order->get_items();
 
-    $dumpPath="../../data/dumps/";
-    
+    $dumpPath = "../../data/dumps/";
+
     // variation id => pg name
-    $pgList=array(
+    $pgList = array(
         1553 => "Ptroguew",
         1552 => "Ptwarwprot",
         1551 => "Ptwarwfury",
@@ -75,26 +75,26 @@ function azth_woocommerce_payment_complete($order_id) {
         1533 => "Ptdkwfrost"
     );
 
-        
-    $wpdb = new wpdb(AZTH_DB_USER,AZTH_DB_PASS,AZTH_DB_AUTH,AZTH_DB_HOST);
+
+    $wpdb = new wpdb(AZTH_DB_USER, AZTH_DB_PASS, AZTH_DB_AUTH, AZTH_DB_HOST);
 
     foreach ($items as $item) {
         $product_name = $item['name'];
         $productId = $item['product_id'];
 
-        if ($productId==PRODUCTID_I80) {
+        if ($productId == PRODUCTID_I80) {
             $product_variation_id = $item['variation_id'];
 
-            $dump=$pgList[$product_variation_id];
+            $dump = $pgList[$product_variation_id];
 
             $current_user = wp_get_current_user();
 
-            $id = $wpdb->get_var("SELECT id FROM account WHERE username  = '".$current_user->user_login."';");
+            $id = $wpdb->get_var("SELECT id FROM account WHERE username  = '" . $current_user->user_login . "';");
 
 
-            Azth\executeSoapCommand('pdump write ' . $dumpPath.$dump . ' ' . $dump);
+            Azth\executeSoapCommand('pdump write ' . $dumpPath . $dump . ' ' . $dump);
 
-            Azth\executeSoapCommand('pdump load ' . $dumpPath.$dump . ' ' . $current_user->user_login);
+            Azth\executeSoapCommand('pdump load ' . $dumpPath . $dump . ' ' . $current_user->user_login);
 
             $wpdb->query("
 	            UPDATE `azth_1_chars`.characters
@@ -104,94 +104,94 @@ function azth_woocommerce_payment_complete($order_id) {
             ");
 
             /*
-                Azth\executeSoapCommand('character rename ' . $newName);
+              Azth\executeSoapCommand('character rename ' . $newName);
 
-                Azth\executeSoapCommand('character changefaction ' . $newName);
+              Azth\executeSoapCommand('character changefaction ' . $newName);
 
-                Azth\executeSoapCommand('character customize ' . $newName);
-            */
+              Azth\executeSoapCommand('character customize ' . $newName);
+             */
         }
     }
 }
 
 add_action('woocommerce_payment_complete', 'azth_woocommerce_payment_complete');
 
-function azth_woocommerce_check_cart_items( $order_id ){
-   $items = WC()->cart->get_cart();
-        
-    $wpdb = new wpdb(AZTH_DB_USER,AZTH_DB_PASS,AZTH_DB_AUTH,AZTH_DB_HOST);
+function azth_woocommerce_check_cart_items($order_id) {
+    $items = WC()->cart->get_cart();
 
-    foreach($items as $item => $values) { 
-        $product = $values['data']->post; 
+    $wpdb = new wpdb(AZTH_DB_USER, AZTH_DB_PASS, AZTH_DB_AUTH, AZTH_DB_HOST);
+
+    foreach ($items as $item => $values) {
+        $product = $values['data']->post;
         $productId = $product->ID;
 
-        if ($productId==PRODUCTID_I80) {
+        if ($productId == PRODUCTID_I80) {
             $current_user = wp_get_current_user();
 
-            $id = $wpdb->get_var("SELECT id FROM account WHERE username  = '".$current_user->user_login."';");
+            $id = $wpdb->get_var("SELECT id FROM account WHERE username  = '" . $current_user->user_login . "';");
 
-            $cnt = $wpdb->get_var($wpdb->prepare("SELECT COUNT(name) FROM `azth_1_chars`.characters WHERE account = %d", $id) );
-            @mysql_close( $wpdb->dbh ); 
+            $cnt = $wpdb->get_var($wpdb->prepare("SELECT COUNT(name) FROM `azth_1_chars`.characters WHERE account = %d", $id));
+            @mysql_close($wpdb->dbh);
 
             if ($cnt > 9) {
-                wc_add_notice( sprintf( __("Hai troppi pg nel tuo account! non puoi acquistare: %s", 'woocommerce'), $product->post_title ), 'error' );
+                wc_add_notice(sprintf(__("Hai troppi pg nel tuo account! non puoi acquistare: %s", 'woocommerce'), $product->post_title), 'error');
             }
 
             return;
         }
     }
 }
-add_action( 'woocommerce_check_cart_items', 'azth_woocommerce_check_cart_items');
 
+add_action('woocommerce_check_cart_items', 'azth_woocommerce_check_cart_items');
 
 /**
  * 
  * @param type $bool
  * @param WC_Coupon $instance
  */
-function azth_woocommerce_coupon_is_valid($bool, $instance ) {
+function azth_woocommerce_coupon_is_valid($bool, $instance) {
     try {
-        if ($instance->code==COUPON_I80) {
-            $wpdb = new wpdb(AZTH_DB_USER,AZTH_DB_PASS,AZTH_DB_AUTH,AZTH_DB_HOST);
+        if ($instance->code == COUPON_I80) {
+            $wpdb = new wpdb(AZTH_DB_USER, AZTH_DB_PASS, AZTH_DB_AUTH, AZTH_DB_HOST);
 
             $current_user = wp_get_current_user();
 
-            $id = $wpdb->get_var("SELECT id FROM account WHERE username  = '".$current_user->user_login."';");
+            $id = $wpdb->get_var("SELECT id FROM account WHERE username  = '" . $current_user->user_login . "';");
 
-            if ($id>0) {
-                $minlevel=19;
-                $maxLevel=60;
-                $cnt = $wpdb->get_var($wpdb->prepare("SELECT COUNT(name) FROM `azth_1_chars`.characters WHERE account = %d AND LEVEL > %d", $id, $maxLevel) );
+            if ($id > 0) {
+                $minlevel = 19;
+                $maxLevel = 60;
+                $cnt = $wpdb->get_var($wpdb->prepare("SELECT COUNT(name) FROM `azth_1_chars`.characters WHERE account = %d AND LEVEL > %d", $id, $maxLevel));
 
                 if ($cnt != 0) {
-                    add_filter( 'gettext', function ( $translated_text, $text, $text_domain ) use ($maxLevel,$minlevel) {
-	                    if ( "Coupon is not valid." === $text ) {
-		                    return "Hai già alcuni personaggi di livello > $maxLevel ! Questo coupon è riservato ai nuovi utenti con almeno un personaggio compreso tra il livello $minlevel e $maxLevel!";
-	                    }
+                    add_filter('gettext', function ( $translated_text, $text, $text_domain ) use ($maxLevel, $minlevel) {
+                        if ("Coupon is not valid." === $text) {
+                            return "Hai già alcuni personaggi di livello > $maxLevel ! Questo coupon è riservato ai nuovi utenti con almeno un personaggio compreso tra il livello $minlevel e $maxLevel!";
+                        }
 
-	                    return $translated_text;
-                    }, 10, 3 );
+                        return $translated_text;
+                    }, 10, 3);
 
 
                     return false;
-                } 
+                }
 
-                $cnt = $wpdb->get_var($wpdb->prepare("SELECT COUNT(name) FROM `azth_1_chars`.characters WHERE account = %d AND level <= %d AND level>= %d", $id, $maxLevel, $minlevel) );
-                @mysql_close( $wpdb->dbh ); 
+                $cnt = $wpdb->get_var($wpdb->prepare("SELECT COUNT(name) FROM `azth_1_chars`.characters WHERE account = %d AND level <= %d AND level>= %d", $id, $maxLevel, $minlevel));
+                @mysql_close($wpdb->dbh);
 
                 if (!$cnt) {
-                    add_filter( 'gettext', function ( $translated_text, $text, $text_domain ) use ($maxLevel,$minlevel) {
-	                    if ( "Coupon is not valid." === $text ) {
-		                    return "Devi avere almeno un personaggio compreso tra il livello $minlevel e $maxLevel per beneficiare di questo coupon!";
-	                    }
+                    add_filter('gettext', function ( $translated_text, $text, $text_domain ) use ($maxLevel, $minlevel) {
+                        if ("Coupon is not valid." === $text) {
+                            return "Devi avere almeno un personaggio compreso tra il livello $minlevel e $maxLevel per beneficiare di questo coupon!";
+                        }
 
-	                    return $translated_text;
-                    }, 10, 3 );
+                        return $translated_text;
+                    }, 10, 3);
 
 
                     return false;
-                } 
-                    
+                }
+
 
 
                 return true;
@@ -206,31 +206,30 @@ function azth_woocommerce_coupon_is_valid($bool, $instance ) {
     }
 }
 
-add_action('woocommerce_coupon_is_valid','azth_woocommerce_coupon_is_valid',10, 2);
+add_action('woocommerce_coupon_is_valid', 'azth_woocommerce_coupon_is_valid', 10, 2);
 
 
 
 /*
-    ENABLE ADMIN BAR
-*/
+  ENABLE ADMIN BAR
+ */
 add_filter('woocommerce_disable_admin_bar', 'azth_wc_disable_admin_bar', 10, 1);
- 
+
 function azth_wc_disable_admin_bar($prevent_admin_access) {
     //if (!current_user_can('example_role')) {
     //    return $prevent_admin_access;
     //}
     return false;
 }
- 
+
 add_filter('woocommerce_prevent_admin_access', 'azth_wc_prevent_admin_access', 10, 1);
- 
+
 function azth_wc_prevent_admin_access($prevent_admin_access) {
     //if (!current_user_can('example_role')) {
     //    return $prevent_admin_access;
     //}
     return false;
 }
-
 
 /*
 function woocommerceCustomFields($checkout) {

@@ -1,3 +1,0 @@
-[submodule "phpunit-4.8"]
-	path = phpunit-4.8
-	url = https://github.com/sebastianbergmann/phpunit.git
