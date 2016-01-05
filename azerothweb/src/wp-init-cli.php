@@ -8,7 +8,7 @@ $_SERVER = array_merge($_SERVER, array(
     "SERVER_NAME" => "http://azerothshard.ga",
     "REQUEST_URI" => "/",
     "REQUEST_METHOD" => "GET"
-));
+        ));
 
 
 define('PATH_CURRENT_SITE', '/');
